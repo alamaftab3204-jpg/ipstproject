@@ -18,14 +18,14 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                rsync -av --delete ./ root@172.16.36.130:/var/lib/docker/volumes/apachevol/_data/
+                rsync -av --delete ./ root@172.16.78.130:/var/lib/docker/volumes/apachevol/_data/
                 '''
             }
         }
         stage('Verify Deployment') {
             steps {
                 sh '''
-                curl -f http://172.16.36.130:8080
+                curl -f http://172.16.78.130:8080
                 '''
             }
         }
